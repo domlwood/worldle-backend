@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 app.use(function (req, res, next) {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://worldle-dwd.netlify.app/"
+    "https://worldle-dwd.netlify.app"
   );
   res.setHeader("Access-Control-Allow-Methods", "GET");
   res.setHeader(
