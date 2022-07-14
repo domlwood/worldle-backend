@@ -13,6 +13,10 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.get("/", () => {
+  res.send("successful setup")
+})
+
 app.get("/distance", (req, res) => {
   params = JSON.parse(req.query.distance);
 
