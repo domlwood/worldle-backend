@@ -2,7 +2,7 @@ const app = require("express")();
 const haversine = require("haversine");
 const map = require("rxjs/operators");
 
-const PORT = 8080;
+const PORT = process.env.PORT || 3000;
 app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "https://worldle-dwd.netlify.app");
   res.setHeader("Access-Control-Allow-Methods", "GET");
@@ -67,4 +67,4 @@ app.get("/distance", (req, res) => {
   });
 });
 
-app.listen(PORT, () => console.log(`it's alive on http://localhost:${PORT}`));
+app.listen(80, () => console.log(`it's alive on http://localhost:${PORT}`));
