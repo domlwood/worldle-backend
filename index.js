@@ -1,6 +1,5 @@
 const app = require("express")();
 const haversine = require("haversine");
-const map = require("rxjs/operators");
 
 const PORT = process.env.PORT || 3000;
 app.use(function (req, res, next) {
