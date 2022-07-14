@@ -70,4 +70,4 @@ app.get("/distance", (req, res) => {
   });
 });
 
-app.listen(80, () => console.log(`it's alive on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`it's alive on http://localhost:${PORT}`));
