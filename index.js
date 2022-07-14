@@ -1,21 +1,32 @@
-const app = require("express")();
+const app = require('express')();
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const helmet = require('helmet');
+const morgan = require('morgan');
+
 const haversine = require("haversine");
 require('dotenv').config()
+
+app.use(helmet());
+app.use(cors());
+app.use(morgan('combined'));
 
 const API_KEY = process.env.API_KEY;
 const PORT = process.env.PORT || 3000;
 app.use(function (req, res, next) {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://worldle-dwd.netlify.app"
+    "https://worldle-dwd.netlify.app/"
   );
   res.setHeader("Access-Control-Allow-Methods", "GET");
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "authorization"
+    "Authorization"
   );
   res.setHeader("Access-Control-Allow-Credentials", true);
   next();
+
+
 });
 
 app.get("/", () => {
@@ -23,7 +34,7 @@ app.get("/", () => {
 });
 
 app.get("/distance", (req, res) => {
-  if (req.headers.authorization !== API_KEY) {
+  if (req.headers.authorization !== `Basic ${API_KEY}`) {
     res.status(401).send("unauthorized access");
   }
     params = JSON.parse(req.query.distance);
