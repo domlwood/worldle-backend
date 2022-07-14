@@ -4,7 +4,7 @@ const map = require("rxjs/operators");
 
 const PORT = 8080;
 app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.setHeader("Access-Control-Allow-Origin", "https://worldle-dwd.netlify.app");
   res.setHeader("Access-Control-Allow-Methods", "GET");
   res.setHeader(
     "Access-Control-Allow-Headers",
